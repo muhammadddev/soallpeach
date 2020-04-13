@@ -1,14 +1,10 @@
 import sys
 import time
-import math
 
 file_name = sys.argv[1]
 
 
 def is_prime(n: int):
-    """
-    Assumes that n is a positive natural number
-    """
     if n == 1:
         return False
 
@@ -23,7 +19,7 @@ def is_prime(n: int):
 
 with open(file_name) as input_numbers:
     for line in input_numbers:
-        print(is_prime(int(line)))
+        print(1 if is_prime(int(line)) else 0)
 
 # end_time = time.time()
 # print(end_time - start_time)
