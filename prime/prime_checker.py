@@ -6,17 +6,24 @@ file_name = sys.argv[1]
 
 
 def is_prime(n: int):
-    for m in range(3, round(math.sqrt(n))):
-        if n % m == 0:
-            return 0
-    return 1
+    """
+    Assumes that n is a positive natural number
+    """
+    if n == 1:
+        return False
+
+    i = 2
+    while i*i <= n:
+        if n % i == 0:
+            return False
+        i += 1
+    return True
 
 # start_time = time.time()
 
 with open(file_name) as input_numbers:
-    content = input_numbers.readlines()
-    for c in content:
-        print(is_prime(int(c.strip())))
+    for line in input_numbers:
+        print(is_prime(int(line)))
 
 # end_time = time.time()
 # print(end_time - start_time)

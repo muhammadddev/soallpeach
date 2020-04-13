@@ -1,5 +1,5 @@
-FROM python:3.8
+FROM pypy
 WORKDIR /app
 COPY prime_checker.py .
 
-ENTRYPOINT ["python", "prime_checker.py"]
+ENTRYPOINT ["pypy", "prime_checker.py"]
