@@ -1,5 +1,5 @@
 import sys
-import multiprocessing
+import time
 
 file_name = sys.argv[1]
 
@@ -12,13 +12,15 @@ def is_prime(n: int):
 
 
 with open(file_name) as input_numbers:
+    start_time = time.time()
     numbers = list()
     for line in input_numbers:
         number = int(line)
         numbers.append(number)
 
-    with multiprocessing.Pool() as pool:
-        results = pool.map(is_prime, numbers)
+    results = map(is_prime, numbers)
         
     for r in results:
         print(r)
+    end_time = time.time()
+    # print(end_time - start_time)
