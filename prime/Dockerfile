@@ -1,5 +1,5 @@
-FROM pypy:3
+FROM pypy:2
 WORKDIR /app
 COPY prime_checker.py .
 
-ENTRYPOINT ["pypy3", "prime_checker.py"]
+ENTRYPOINT ["pypy2", "prime_checker.py"]

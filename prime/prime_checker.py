@@ -1,35 +1,32 @@
+from __future__ import print_function
 import sys
 import math
-# import time
+import time
+from multiprocessing import Pool
+
 
 file_name = sys.argv[1]
 
 
-def is_prime(n: int):
-    if n <= 1:
-        return False
-
-    if n % 2 == 0:
-        return False
-
-    if n % 3 == 0:
-        return False
-
-    if n % 5 == 0:
-        return False
+def is_prime(n):
+    flag = -1
+    for m in range(2, int(math.sqrt(n)) + 1):
+        if n % m == 0:
+            flag = 0
     
-    if n % 7 == 0:
-        return False
+    if flag == -1:
+        flag = 1
+    
+    print(flag)
 
-    for i in range(11, int(math.sqrt(n))):
-        if n % i == 0:
-            return False
-    return True
 
 if __name__ == "__main__":
-    # start_time = time.time()
+    p = Pool(5)
+    start_time = time.time()
     with open(file_name) as input_numbers:
-        for line in input_numbers:
-            print(1 if is_prime(int(line)) else 0)
-    # stop_time = time.time()
-    # print(stop_time - start_time)
+        l =tuple([int(line) for line in input_numbers])
+
+    p.map(is_prime, l)
+
+    stop_time = time.time()
+    print(stop_time - start_time)
