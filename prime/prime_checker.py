@@ -1,5 +1,4 @@
 import sys
-import time
 
 file_name = sys.argv[1]
 
@@ -12,14 +11,9 @@ def is_prime(n: int):
     while i*i <= n:
         if n % i == 0:
             return False
-        i += 1
+        i += 2
     return True
-
-# start_time = time.time()
 
 with open(file_name) as input_numbers:
     for line in input_numbers:
         print(1 if is_prime(int(line)) else 0)
-
-# end_time = time.time()
-# print(end_time - start_time)
