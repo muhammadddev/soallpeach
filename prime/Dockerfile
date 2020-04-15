@@ -1,5 +1,5 @@
 FROM pypy:2
-WORKDIR /app
+WORKDIR /usr/src/app
 COPY prime_checker.py .
 
-ENTRYPOINT ["pypy2", "prime_checker.py"]
+ENTRYPOINT ["pypy", "prime_checker.py"]
